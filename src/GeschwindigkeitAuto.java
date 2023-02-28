@@ -57,7 +57,7 @@ public class GeschwindigkeitAuto {
         int input;
 
 
-        while(jump) {
+
             for (int i = 0; i < geschwindigkeit.length && !exit;) {
                 System.out.println("Gib Geschwindigkeitswerte: ");
                 input = scanner.nextInt();
@@ -71,7 +71,6 @@ public class GeschwindigkeitAuto {
                     i++;
                 }
             }
-        }
         scanner.close();
     }
     public static void ausgeben(@NotNull int geschwindigkeiten[]) {
