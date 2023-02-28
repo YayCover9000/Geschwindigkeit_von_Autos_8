@@ -1,9 +1,7 @@
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Scanner;
 public class GeschwindigkeitAuto {
     public static void main(String [] args) {
-        // TEST
+        // TEST //TODO Testtreiber schreiben und ausführbar machen
         System.out.println("\t=====\n!TESTTREIBER!\n\tANFANG:\t\n");
         // tests on -1
         int abbruch[] = new int[3];
@@ -13,9 +11,9 @@ public class GeschwindigkeitAuto {
         System.out.println("\n\tENDE!!\n!TESTTREIBER!\t\n\t=====");
 
         // main
-        int GeschwindigkeitsEingaben[] = new int[3];
-        GeschwindigkeitAuto.einlesenGeschwindigkeit(GeschwindigkeitsEingaben);
-        GeschwindigkeitAuto.ausgeben(GeschwindigkeitsEingaben);
+        int geschwindigkeitsEingaben[] = new int[3];
+        GeschwindigkeitAuto.einlesenGeschwindigkeit(geschwindigkeitsEingaben);
+        GeschwindigkeitAuto.ausgeben(geschwindigkeitsEingaben);
 
 
         /* Input mit weniger Zahlen als Array.length
@@ -52,19 +50,16 @@ public class GeschwindigkeitAuto {
         /* Die Methode liest Geschwindigkeiten für ein Auto mit ganzzahligen, realistischen Werten ein (d.h. zwischen 1 und 300 km/h, Randwerte einschließlich).
         Die Werte werden, solange eingegeben bis -1 eingegeben wird oder das Array voll ist. */
         Scanner scanner = new Scanner(System.in);
+
         boolean exit = false;
-        boolean jump = true;
         int input;
-
-
-
+        
             for (int i = 0; i < geschwindigkeit.length && !exit;) {
                 System.out.println("Gib Geschwindigkeitswerte: ");
                 input = scanner.nextInt();
-                // Checks if Input -1
+                // Checks if Input -123
                 if (input == -1) {
                     exit = true;
-                    jump = false;
                 } //Checks if in range
                 else if (input >= 1 && input <= 300) {
                     geschwindigkeit[i] = input;
@@ -73,7 +68,7 @@ public class GeschwindigkeitAuto {
             }
         scanner.close();
     }
-    public static void ausgeben(@NotNull int geschwindigkeiten[]) {
+    public static void ausgeben(int geschwindigkeiten[]) {
         System.out.println("Array inhalt: ");
         for (int j : geschwindigkeiten) {
             System.out.println("Geschwindigkeit: " + j + "km/h");
