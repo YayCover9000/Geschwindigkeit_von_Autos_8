@@ -52,17 +52,28 @@ public class GeschwindigkeitAuto {
         Scanner scanner = new Scanner(System.in);
 
         boolean exit = false;
-        int input;
+        int input = 0;
         
             for (int i = 0; i < geschwindigkeit.length && !exit;) {
                 System.out.println("Gib Geschwindigkeitswerte: ");
-                input = scanner.nextInt();
-                // Checks if Input -123
-                if (input == -1) {
+                String inputNextline = scanner.nextLine();
+                //input = scanner.nextInt();
+                if (inputNextline.isEmpty()) {
+                    System.out.println("Input is empty");
+                    // Jumps out of For loop
+                    exit = true;
+                }
+                else {
+                    input = Integer.parseInt(inputNextline);
+                }
+                // Checks if Input -1
+                if (exit || input == -1) {
+                    // Jumps out of For loop
                     exit = true;
                 } //Checks if in range
                 else if (input >= 1 && input <= 300) {
                     geschwindigkeit[i] = input;
+
                     i++;
                 }
             }
