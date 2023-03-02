@@ -1,3 +1,5 @@
+import java.lang.reflect.Executable;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class GeschwindigkeitAuto {
     public static void main(String [] args) {
@@ -50,11 +52,49 @@ public class GeschwindigkeitAuto {
         /* Die Methode liest Geschwindigkeiten für ein Auto mit ganzzahligen, realistischen Werten ein (d.h. zwischen 1 und 300 km/h, Randwerte einschließlich).
         Die Werte werden, solange eingegeben bis -1 eingegeben wird oder das Array voll ist. */
         Scanner scanner = new Scanner(System.in);
-        boolean isInt = true;
+        boolean isEmpty = false ;
         boolean exit = false;
         int input = 0;
-        
-            for (int i = 0; i < geschwindigkeit.length && !exit;) {
+
+        while (!isEmpty && !exit) {
+            try {
+                for (int i = 0; i < geschwindigkeit.length && !exit; ) {
+                    System.out.println("Gib Geschwindigkeitswerte: ");
+                    // Reads next Input as String
+                    String inputNextline = scanner.nextLine();
+                    // Checks if Input is empty
+                    if (inputNextline.equals("")) {
+                        System.out.println("Input is empty");
+                        // Jumps out of For loop
+                        exit = true;
+                    }
+                    //input = scanner.nextInt();
+                    else {
+                        input = Integer.parseInt(inputNextline);
+                    }
+                    if (inputNextline.isEmpty()) {
+                        System.out.println("Input is empty");
+                        // Jumps out of For loop
+                        exit = true;
+                    } else {
+                        input = Integer.parseInt(inputNextline);
+                    }
+                    // Checks if Input -1
+                    if (exit || input == -1) {
+                        // Jumps out of For loop
+                        exit = true;
+                    } //Checks if in range
+                    else if (input >= 1 && input <= 300) {
+                        geschwindigkeit[i] = input;
+
+                        i++;
+                    }
+                } catch(Exception e){
+                    System.out.println("Input is not a number");
+                    scanner.nextLine();
+                }
+            }
+            /* for (int i = 0; i < geschwindigkeit.length && !exit;) {
                 System.out.println("Gib Geschwindigkeitswerte: ");
                 // Reads next Input as String
                 String inputNextline = scanner.nextLine();
@@ -86,10 +126,10 @@ public class GeschwindigkeitAuto {
 
                     i++;
                 }
-            }
+            } */
         scanner.close();
     }
-    public static void ausgeben(int geschwindigkeiten[]) {
+      public static void ausgeben(int geschwindigkeiten[]) {
         System.out.println("Array inhalt: ");
         for (int j : geschwindigkeiten) {
             System.out.println("Geschwindigkeit: " + j + "km/h");
