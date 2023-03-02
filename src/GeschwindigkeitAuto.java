@@ -50,14 +50,24 @@ public class GeschwindigkeitAuto {
         /* Die Methode liest Geschwindigkeiten für ein Auto mit ganzzahligen, realistischen Werten ein (d.h. zwischen 1 und 300 km/h, Randwerte einschließlich).
         Die Werte werden, solange eingegeben bis -1 eingegeben wird oder das Array voll ist. */
         Scanner scanner = new Scanner(System.in);
-
+        boolean isInt = true;
         boolean exit = false;
         int input = 0;
         
             for (int i = 0; i < geschwindigkeit.length && !exit;) {
                 System.out.println("Gib Geschwindigkeitswerte: ");
+                // Reads next Input as String
                 String inputNextline = scanner.nextLine();
+                // Checks if Input is empty
+                if (inputNextline.equals("")) {
+                    System.out.println("Input is empty");
+                    // Jumps out of For loop
+                    exit = true;
+                }
                 //input = scanner.nextInt();
+                else {
+                    input = Integer.parseInt(inputNextline);
+                }
                 if (inputNextline.isEmpty()) {
                     System.out.println("Input is empty");
                     // Jumps out of For loop
