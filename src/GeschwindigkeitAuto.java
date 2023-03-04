@@ -55,67 +55,9 @@ public class GeschwindigkeitAuto {
         boolean isEmpty = false ;
         boolean exit = false;
         int input = 0;
-
-        while (!isEmpty && !exit) {
-            try {
-                for (int i = 0; i < geschwindigkeit.length && !exit; ) {
-                    System.out.println("Gib Geschwindigkeitswerte: ");
-                    // Reads next Input as String
-                    String inputNextline = scanner.nextLine();
-                    // Checks if Input is empty
-                    if (inputNextline.equals("")) {
-                        System.out.println("Input is empty");
-                        // Jumps out of For loop
-                        exit = true;
-                    }
-                    //input = scanner.nextInt();
-                    else {
-                        input = Integer.parseInt(inputNextline);
-                    }
-                    if (inputNextline.isEmpty()) {
-                        System.out.println("Input is empty");
-                        // Jumps out of For loop
-                        exit = true;
-                    } else {
-                        input = Integer.parseInt(inputNextline);
-                    }
-                    // Checks if Input -1
-                    if (exit || input == -1) {
-                        // Jumps out of For loop
-                        exit = true;
-                    } //Checks if in range
-                    else if (input >= 1 && input <= 300) {
-                        geschwindigkeit[i] = input;
-
-                        i++;
-                    }
-                } catch(Exception e){
-                    System.out.println("Input is not a number");
-                    scanner.nextLine();
-                }
-            }
-            /* for (int i = 0; i < geschwindigkeit.length && !exit;) {
+             for (int i = 0; i < geschwindigkeit.length && !exit;) {
                 System.out.println("Gib Geschwindigkeitswerte: ");
-                // Reads next Input as String
-                String inputNextline = scanner.nextLine();
-                // Checks if Input is empty
-                if (inputNextline.equals("")) {
-                    System.out.println("Input is empty");
-                    // Jumps out of For loop
-                    exit = true;
-                }
-                //input = scanner.nextInt();
-                else {
-                    input = Integer.parseInt(inputNextline);
-                }
-                if (inputNextline.isEmpty()) {
-                    System.out.println("Input is empty");
-                    // Jumps out of For loop
-                    exit = true;
-                }
-                else {
-                    input = Integer.parseInt(inputNextline);
-                }
+                input = scanner.nextInt();
                 // Checks if Input -1
                 if (exit || input == -1) {
                     // Jumps out of For loop
@@ -126,7 +68,7 @@ public class GeschwindigkeitAuto {
 
                     i++;
                 }
-            } */
+            }
         scanner.close();
     }
       public static void ausgeben(int geschwindigkeiten[]) {
