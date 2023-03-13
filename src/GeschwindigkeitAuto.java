@@ -12,9 +12,8 @@ public class GeschwindigkeitAuto {
         boolean exit = false;
         int input;
 
+        System.out.println("Gib Geschwindigkeitswerte: ");
         for (int i = 0; i < geschwindigkeit.length && !exit;) {
-            System.out.println("Gib Geschwindigkeitswerte: ");
-
             if(scanner.hasNextInt()){
                 input = scanner.nextInt();
                 // Checks if Input -1
